@@ -37,6 +37,26 @@ Extract only new records based on timestamp
 
 Update the last_extraction.txt file with the latest timestamp
 
+##  Transformations Applied
+
+The following data transformations were performed on both the full and incremental datasets:
+
+1. **Cleaning**
+   - Removed rows with missing (NaN) values using `dropna()`.
+   - Removed duplicate records using `drop_duplicates()`.
+
+2. **Enrichment**
+   - Added a new column `total_price`, calculated as:
+     ```
+     total_price = quantity × unit_price
+     ```
+
+3. **Structural Changes**
+   - Standardized column names: converted to lowercase, replaced spaces with underscores.
+   - Converted `order_date` column to datetime format using `pd.to_datetime()`.
+
+
+
 
 ##  How to Reproduce
 git clone https://github.com/tk2814/ETL_Extract_TedKorir_670340.git
