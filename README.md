@@ -56,6 +56,28 @@ The following data transformations were performed on both the full and increment
    - Converted `order_date` column to datetime format using `pd.to_datetime()`.
 
 
+  ## Lab 5 – Load
+
+### Loading Method Used:
+- Used Parquet for both the full and incremental transformed datasets.
+
+### Output Location:
+- Both Parquet files are saved inside the `loaded_data/` directory:
+  - `loaded_data/full_data.parquet`
+  - `loaded_data/incremental_data.parquet`
+
+### Example Python Load Code:
+```python
+import pandas as pd
+
+# Load CSV
+df = pd.read_csv('transformed_full.csv')
+
+# Save as Parquet
+df.to_parquet('loaded_data/full_data.parquet', index=False)
+
+
+
 
 
 ##  How to Reproduce
